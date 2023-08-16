@@ -1,27 +1,17 @@
 import Colaborador from '../Colaborador'
-import './Elo.css'
+import './elo.css'
 
-const Elo = (props) => {
-    const css = { backgroundColor: props.corSecundaria }
-
+const Elo = ({ elo, colaboradores }) => {
     return (
-        
-        (props.colaboradores.length > 0) ? <section className="elo" style={css}>
-            <h3 style={{ borderColor: props.corPrimaria }}>
-                {props.nome}
-            </h3>
+
+        colaboradores.length > 0 && <section className='elo' style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: elo.corPrimaria }}>
+            <h3 style={{ borderColor: elo.corSecundaria }}>{elo.nome}</h3>
             <div className='colaboradores'>
-                {props.colaboradores.map(colaborador => 
-                    <Colaborador 
-                    corDeFundo={props.corPrimaria}
-                    key={colaborador.nome}
-                    nome={colaborador.nome} 
-                    cargo={colaborador.lane} 
-                    imagem={colaborador.imagem}/>
-                )}
+                {colaboradores.map((colaborador, indice) => <Colaborador key={indice} colaborador={colaborador} corDeFundo={elo.corSecundaria} />)}
             </div>
         </section>
-        : ''
+
     )
 }
+
 export default Elo

@@ -2,66 +2,54 @@ import { useState } from 'react'
 import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
-import './Formulario.css'
+import './formulario.css'
 
-const Formulario = (props) => {
+const Formulario = ({aoCadastrar, elos}) => {
 
     const [nome, setNome] = useState('')
     const [lane, setLane] = useState('')
     const [imagem, setImagem] = useState('')
-    const [elo, setElo] = useState('')
+    const [time, setTime] = useState('')
 
-    const aoSalvar = (evento) => {
+    const aoSubmeter = (evento) => {
         evento.preventDefault()
-        props.aoColaboradorCadastrado({
+        console.log('form enviado', nome, lane, imagem, time )
+        aoCadastrar({
             nome,
             lane,
             imagem,
-            elo
+            time
         })
-        setNome('')
-        setLane('')
-        setImagem('')
-        setElo('')
     }
 
     return (
-        <section className="formulario">
-            <form onSubmit={aoSalvar}>
-                <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto 
+        <section className="formulario-container">
+            <form className="formulario" onSubmit={aoSubmeter}>
+                <h2>Preencha os dados para criar o card do colaborador.</h2>
+                <CampoTexto
                     obrigatorio={true}
-                    label="Nome"
-                    placeholder="Digite seu nome" 
+                    label='Nome'
+                    placeholder='Digite seu nome '
                     valor={nome}
-                    aoAlterado={valor => setNome(valor)}
-                />
+                    aoAlterado={valor => setNome(valor)}/>
                 <CampoTexto
                     obrigatorio={true}
-                    label="Lane"
-                    placeholder="Digite sua Lane" 
+                    label='Lane' 
+                    placeholder='Digite sua lane '
                     valor={lane}
-                    aoAlterado={valor => setLane(valor)}
-                />
-                <CampoTexto
-                    label="Imagem"
-                    placeholder="Digite o endereço da imagem" 
-                    valor={imagem}
-                    aoAlterado={valor => setImagem(valor)}
-                />
-                <ListaSuspensa
+                    aoAlterado={valor => setLane(valor)}/>
+                <CampoTexto 
+                    label='Imagem' 
+                    placeholder='Informe o endereço da imagem '
+                    aoAlterado={valor => setImagem(valor)}/>
+                <ListaSuspensa 
                     obrigatorio={true}
-                    label="Elo" 
-                    itens={props.elos}
-                    valor={elo}
-                    aoAlterado={valor => setElo(valor)}
-                />
-                <Botao>
-                    Criar Card
-                </Botao>
+                    label='Times'
+                    items={times} 
+                    valor={time}
+                    aoAlterado={valor => setTime(valor)}/>
+                <Botao texto='Criar card' />
             </form>
         </section>
     )
 }
-
-export default Formulario
