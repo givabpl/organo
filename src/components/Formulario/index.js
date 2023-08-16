@@ -53,3 +53,4 @@ const Formulario = ({aoCadastrar, elos}) => {
         </section>
     )
 }
+export default Formulario
