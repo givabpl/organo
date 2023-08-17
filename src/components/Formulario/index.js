@@ -2,23 +2,23 @@ import { useState } from 'react'
 import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
-import './formulario.css'
+import './Formulario.css'
 
 const Formulario = ({aoCadastrar, elos}) => {
 
     const [nome, setNome] = useState('')
     const [lane, setLane] = useState('')
     const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
+    const [elo, setElo] = useState('')
 
     const aoSubmeter = (evento) => {
         evento.preventDefault()
-        console.log('form enviado', nome, lane, imagem, time )
+        console.log('form enviado', nome, lane, imagem, elo )
         aoCadastrar({
             nome,
             lane,
             imagem,
-            time
+            elo
         })
     }
 
@@ -44,10 +44,10 @@ const Formulario = ({aoCadastrar, elos}) => {
                     aoAlterado={valor => setImagem(valor)}/>
                 <ListaSuspensa 
                     obrigatorio={true}
-                    label='Times'
-                    items={times} 
-                    valor={time}
-                    aoAlterado={valor => setTime(valor)}/>
+                    label='Elos'
+                    items={elos} 
+                    valor={elo}
+                    aoAlterado={valor => setElo(valor)}/>
                 <Botao texto='Criar card' />
             </form>
         </section>

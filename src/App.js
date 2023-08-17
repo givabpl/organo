@@ -1,86 +1,233 @@
-import { useState } from 'react'
-import Banner from './components/Banner';
-import Formulario from './components/Formulario';
-import Elo from './components/Elo';
+import { useState } from "react";
+import Banner from "./components/Banner";
+import Formulario from "./components/Formulario";
+import Rodape from "./components/Rodape";
+import Elo from "./components/Elo";
 
 function App() {
 
   const elos = [
     {
       nome: 'Ferro',
-      corPrimaria: '#404040',
-      corSecundaria: '#8B8B8B'
+      corPrimaria: '#D9F7E9',
+      corSecundaria: '#57C278'
     },
     {
       nome: 'Bronze',
-      corPrimaria: '#986A1A',
-      corSecundaria: '#D4B684'
+      corPrimaria: '#E8F8FF',
+      corSecundaria: '#82CFFA'
     },
     {
       nome: 'Prata',
-      corPrimaria: '#6B6B6B',
-      corSecundaria: '#CBCBCB'
+      corPrimaria: '#F0F8E2',
+      corSecundaria: '#A6D157'
     },
     {
       nome: 'Ouro',
-      corPrimaria: '#EFA322',
-      corSecundaria: '#FFD998'
+      corPrimaria: '#FDE7E8',
+      corSecundaria: '#E06B69'
     },
     {
       nome: 'Platina',
-      corPrimaria: '#1D8D8D',
-      corSecundaria: '#86D4D4'
+      corPrimaria: '#FAE9F5',
+      corSecundaria: '#DB6EBF'
     },
     {
       nome: 'Esmeralda',
-      corPrimaria: '#21AD76',
-      corSecundaria: '#9DF1D0'
+      corPrimaria: '#FFF5D9',
+      corSecundaria: '#FFBA05'
     },
     {
       nome: 'Diamante',
-      corPrimaria: '#05728F',
-      corSecundaria: '#93EADB'
-    }, 
+      corPrimaria: '#FFEEDF',
+      corSecundaria: '#FF8A29'
+    },
     {
       nome: 'Mestre',
-      corPrimaria: '#6B1684',
-      corSecundaria: '#D9A6E8'
-    }, 
+      corPrimaria: '#FFEEDF',
+      corSecundaria: '#FF8A29'
+    },
     {
       nome: 'Grão-Mestre',
-      corPrimaria: '#A80E0E',
-      corSecundaria: '#7D7D7D'
-    }, 
+      corPrimaria: '#FFEEDF',
+      corSecundaria: '#FF8A29'
+    },
     {
       nome: 'Desafiante',
-      corPrimaria: '#088AA6',
-      corSecundaria: '#FFF7BE'
+      corPrimaria: '#FFEEDF',
+      corSecundaria: '#FF8A29'
     }
   ]
-  
-  const [colaboradores, setColaboradores] = useState([])
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger
-    setColaboradores([...colaboradores, colaborador])
+  const inicial = [
+    {
+      nome: 'JULIANA AMOASEI',
+      lane: 'Meio',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      elo: elos[0].nome
+    },
+    {
+      nome: 'DANIEL ARTINE',
+      lane: 'Meio',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
+      elo: elos[0].nome
+    },
+    {
+      nome: 'GUILHERME LIMA',
+      lane: 'Meio',
+      imagem: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
+      elo: elos[0].nome
+    },
+    {
+      nome: 'PAULO SILVEIRA',
+      lane: 'Bot Lane - Suporte',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
+      elo: elos[0].nome
+    },
+    {
+      nome: 'JULIANA AMOASEI',
+      lane: 'Top',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      elo: elos[1].nome
+    },
+    {
+      nome: 'DANIEL ARTINE',
+      lane: 'Bot Lane - Suporte',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
+      elo: elos[1].nome
+    },
+    {
+      nome: 'GUILHERME LIMA',
+      lane: 'Top',
+      imagem: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
+      elo: elos[1].nome
+    },
+    {
+      nome: 'PAULO SILVEIRA',
+      lane: 'Bot Lane - Atirador',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
+      elo: elos[1].nome
+    },
+    {
+      nome: 'JULIANA AMOASEI',
+      lane: 'Bot Lane - Atirador',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      elo: elos[2].nome
+    },
+    {
+      nome: 'DANIEL ARTINE',
+      lane: 'Meio',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
+      elo: elos[2].nome
+    },
+    {
+      nome: 'GUILHERME LIMA',
+      lane: 'Jungler',
+      imagem: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
+      elo: elos[2].nome
+    },
+    {
+      nome: 'PAULO SILVEIRA',
+      lane: 'Top',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
+      elo: elos[2].nome
+    },
+    {
+      nome: 'JULIANA AMOASEI',
+      lane: 'Jungler',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      elo: elos[3].nome
+    },
+    {
+      nome: 'DANIEL ARTINE',
+      lane: 'Bot Lane - Suporte',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
+      elo: elos[3].nome
+    },
+    {
+      nome: 'GUILHERME LIMA',
+      lane: 'Top',
+      imagem: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
+      elo: elos[3].nome
+    },
+    {
+      nome: 'PAULO SILVEIRA',
+      lane: 'Jungler',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
+      elo: elos[3].nome
+    },
+    {
+      nome: 'JULIANA AMOASEI',
+      lane: 'Top',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      elo: elos[4].nome
+    },
+    {
+      nome: 'DANIEL ARTINE',
+      lane: 'Top',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
+      elo: elos[4].nome
+    },
+    {
+      nome: 'GUILHERME LIMA',
+      lane: 'Bot Lane - Suporte',
+      imagem: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
+      elo: elos[4].nome
+    },
+    {
+      nome: 'PAULO SILVEIRA',
+      lane: 'Bot Lane - Atirador',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
+      elo: elos[4].nome
+    },
+    {
+      nome: 'JULIANA AMOASEI',
+      lane: 'Bot Lane - Suporte',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      elo: elos[5].nome
+    },
+    {
+      nome: 'DANIEL ARTINE',
+      lane: 'Top',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
+      elo: elos[5].nome
+    },
+    {
+      nome: 'GUILHERME LIMA',
+      lane: 'Top',
+      imagem: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
+      elo: elos[5].nome
+    },
+    {
+      nome: 'PAULO SILVEIRA',
+      lane: 'Bot Lane - Suporte',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
+      elo: elos[5].nome
+    },
+  ]
+
+  const [colaboradores, setColaboradores] = useState(inicial)
+
+  function deletarColaborador() {
+
   }
 
   return (
-    <div className="App">
-      <Banner/>
-      <Formulario 
-        elos={elos.map(elo => elo.nome)} 
-        aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
-      />
-
-      {elos.map(elo => <Elo 
-        key={elo.nome} 
-        nome={elo.nome} 
-        corPrimaria={elo.corPrimaria} 
-        corSecundaria={elo.corSecundaria}
-        colaboradores={colaboradores.filter(colaborador => colaborador.elo === elo.nome)}
-      />)}
-
+    <div>
+      <Banner />
+      <Formulario elos={elos.map(elo => elo.nome)} aoCadastrar={colaborador => setColaboradores([...colaboradores, colaborador])} />
+      <section className="elos">
+        <h1>Minha organização</h1>
+        {elos.map((elo, indice) => 
+          <Elo 
+            key={indice} 
+            elo={elo} 
+            colaboradores={colaboradores.filter(colaborador => colaborador.elo === elo.nome)} 
+            aoDeletar={deletarColaborador}
+          />
+        )}
+      </section>
+      <Rodape />
     </div>
   );
 }
