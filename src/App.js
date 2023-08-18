@@ -6,7 +6,7 @@ import Elo from "./components/Elo";
 
 function App() {
 
-  const elos = [
+  const [elos, setElos] = useState([
     {
       nome: 'Ferro',
       corPrimaria: '#D9F7E9',
@@ -57,7 +57,7 @@ function App() {
       corPrimaria: '#FFEEDF',
       corSecundaria: '#FF8A29'
     }
-  ]
+  ])
 
   const inicial = [
     {
@@ -212,14 +212,24 @@ function App() {
 
   }
 
+  function mudarCorElo(cor, nome) {
+    setElos(elos.map(elo => {
+      if(elo.nome === nome) {
+        elo.corSecundaria = cor;
+      }
+      return elo;
+    }));
+  }
+
   return (
     <div>
       <Banner />
       <Formulario elos={elos.map(elo => elo.nome)} aoCadastrar={colaborador => setColaboradores([...colaboradores, colaborador])} />
       <section className="elos">
-        <h1>Minha organização</h1>
+        <h1 id="titulo">Minha organização</h1>
         {elos.map((elo, indice) => 
           <Elo 
+            mudarCor={mudarCorElo}
             key={indice} 
             elo={elo} 
             colaboradores={colaboradores.filter(colaborador => colaborador.elo === elo.nome)} 
