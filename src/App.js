@@ -9,53 +9,43 @@ function App() {
   const [elos, setElos] = useState([
     {
       nome: 'Ferro',
-      corPrimaria: '#D9F7E9',
-      corSecundaria: '#57C278'
+      cor: '#57C278'
     },
     {
       nome: 'Bronze',
-      corPrimaria: '#E8F8FF',
-      corSecundaria: '#82CFFA'
+      cor: '#82CFFA'
     },
     {
       nome: 'Prata',
-      corPrimaria: '#F0F8E2',
-      corSecundaria: '#A6D157'
+      cor: '#A6D157'
     },
     {
       nome: 'Ouro',
-      corPrimaria: '#FDE7E8',
-      corSecundaria: '#E06B69'
+      cor: '#E06B69'
     },
     {
       nome: 'Platina',
-      corPrimaria: '#FAE9F5',
-      corSecundaria: '#DB6EBF'
+      cor: '#DB6EBF'
     },
     {
       nome: 'Esmeralda',
-      corPrimaria: '#FFF5D9',
-      corSecundaria: '#FFBA05'
+      cor: '#FFBA05'
     },
     {
       nome: 'Diamante',
-      corPrimaria: '#FFEEDF',
-      corSecundaria: '#FF8A29'
+      cor: '#FF8A29'
     },
     {
       nome: 'Mestre',
-      corPrimaria: '#FFEEDF',
-      corSecundaria: '#FF8A29'
+      cor: '#FF8A29'
     },
     {
       nome: 'Grão-Mestre',
-      corPrimaria: '#FFEEDF',
-      corSecundaria: '#FF8A29'
+      cor: '#FF8A29'
     },
     {
       nome: 'Desafiante',
-      corPrimaria: '#FFEEDF',
-      corSecundaria: '#FF8A29'
+      cor: '#FF8A29'
     }
   ])
 
@@ -215,7 +205,7 @@ function App() {
   function mudarCorElo(cor, nome) {
     setElos(elos.map(elo => {
       if(elo.nome === nome) {
-        elo.corSecundaria = cor;
+        elo.cor = cor;
       }
       return elo;
     }));
