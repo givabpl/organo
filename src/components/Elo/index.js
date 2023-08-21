@@ -8,7 +8,7 @@ const Elo = ({ elo, colaboradores, aoDeletar, mudarCor }) => {
         colaboradores.length > 0 && <section className='elo' style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(elo.cor, '0.6') }}>
             <h3 style={{ borderColor: elo.cor }}>{elo.nome}</h3>
             <input 
-                onChange={evento => mudarCor(evento.target.value, elo.nome)} 
+                onChange={evento => mudarCor(evento.target.value, elo.id)} 
                 value={elo.cor} 
                 type='color' 
                 className='input-cor' />

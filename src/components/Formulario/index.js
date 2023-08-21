@@ -4,12 +4,14 @@ import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
-const Formulario = ({aoCadastrar, elos}) => {
+const Formulario = ({ aoCadastrar, elo, cadastrarElo }) => {
 
     const [nome, setNome] = useState('')
     const [lane, setLane] = useState('')
     const [imagem, setImagem] = useState('')
     const [elo, setElo] = useState('')
+    const [nomeElo, setNomeElo] = useState('')
+    const [corElo, setCorElo] = useState('')
 
     const aoSubmeter = (evento) => {
         evento.preventDefault()
@@ -49,6 +51,28 @@ const Formulario = ({aoCadastrar, elos}) => {
                     valor={elo}
                     aoAlterado={valor => setElo(valor)}/>
                 <Botao texto='Criar card' />
+            </form>
+            <form 
+                className="formulario" 
+                onSubmit={(evento) => {
+                    evento.preventDefault()
+                    cadastrarElo({ nome: nomeElo, cor: corElo })
+                }}
+            >
+                <h2>Preencha os dados para criar um novo elo.</h2>
+                <CampoTexto
+                    obrigatorio
+                    label='Nome'
+                    placeholder='Digite o nome do elo'
+                    valor={nomeElo}
+                    aoAlterado={valor => setNomeElo(valor)}/>
+                <CampoTexto
+                    obrigatorio
+                    label='Cor' 
+                    placeholder='Selecione a cor do elo'
+                    valor={corElo}
+                    aoAlterado={valor => setCorElo(valor)}/>
+                <Botao texto='Criar um novo elo' />
             </form>
         </section>
     )
