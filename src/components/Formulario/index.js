@@ -4,7 +4,7 @@ import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
-const Formulario = ({ aoCadastrar, elo, cadastrarElo }) => {
+const Formulario = ({ aoCadastrar, elos, cadastrarElo }) => {
 
     const [nome, setNome] = useState('')
     const [lane, setLane] = useState('')
