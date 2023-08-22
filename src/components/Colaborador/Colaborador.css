@@ -40,5 +40,8 @@
     position: absolute;
     right: -10px;
     top: -10px;
+}
 
+.favoritar {
+    margin-top: 20px;
 }

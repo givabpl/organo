@@ -3,7 +3,7 @@ import './Elo.css';
 import hexToRgba from 'hex-to-rgba';
 
 
-const Elo = ({ elo, colaboradores, aoDeletar, mudarCor }) => {
+const Elo = ({ elo, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
     return (
         colaboradores.length > 0 && <section className='elo' style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(elo.cor, '0.6') }}>
             <h3 style={{ borderColor: elo.cor }}>{elo.nome}</h3>
@@ -13,12 +13,17 @@ const Elo = ({ elo, colaboradores, aoDeletar, mudarCor }) => {
                 type='color' 
                 className='input-cor' />
             <div className='colaboradores'>
-                {colaboradores.map((colaborador, indice) => <Colaborador 
-                    key={indice} 
-                    colaborador={colaborador} 
-                    corDeFundo={elo.cor} 
-                    aoDeletar={aoDeletar} 
-                />)}
+                {colaboradores.map((colaborador, indice) => {
+                    return (
+                        <Colaborador 
+                            key={indice} 
+                            colaborador={colaborador} 
+                            corDeFundo={elo.cor} 
+                            aoDeletar={aoDeletar} 
+                            aoFavoritar={aoFavoritar}
+                        />
+                    );
+                })}
             </div>
         </section>
 
