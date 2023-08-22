@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Botao from '../Botao'
-import CampoTexto from '../CampoTexto'
+import Campo from '../Campo'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
@@ -28,19 +28,19 @@ const Formulario = ({ aoCadastrar, elos, cadastrarElo }) => {
         <section className="formulario-container">
             <form className="formulario" onSubmit={aoSubmeter}>
                 <h2>Preencha os dados para criar o card do colaborador.</h2>
-                <CampoTexto
+                <Campo
                     obrigatorio={true}
                     label='Nome'
                     placeholder='Digite seu nome '
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}/>
-                <CampoTexto
+                <Campo
                     obrigatorio={true}
                     label='Lane' 
                     placeholder='Digite sua lane '
                     valor={lane}
                     aoAlterado={valor => setLane(valor)}/>
-                <CampoTexto 
+                <Campo 
                     label='Imagem' 
                     placeholder='Informe o endereço da imagem '
                     aoAlterado={valor => setImagem(valor)}/>
@@ -60,14 +60,15 @@ const Formulario = ({ aoCadastrar, elos, cadastrarElo }) => {
                 }}
             >
                 <h2>Preencha os dados para criar um novo elo.</h2>
-                <CampoTexto
+                <Campo
                     obrigatorio
                     label='Nome'
                     placeholder='Digite o nome do elo'
                     valor={nomeElo}
                     aoAlterado={valor => setNomeElo(valor)}/>
-                <CampoTexto
+                <Campo
                     obrigatorio
+                    type='color'
                     label='Cor' 
                     placeholder='Selecione a cor do elo'
                     valor={corElo}
